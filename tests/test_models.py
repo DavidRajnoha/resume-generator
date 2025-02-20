@@ -1,5 +1,4 @@
 import pytest
-from src.models.data_factory import DataFactory
 from src.models.applicant_profile import (
     ApplicantProfile,
 )
@@ -115,7 +114,7 @@ def application_json():
 
 
 def test_create_applicant_profile(applicant_json):
-    profile = DataFactory.create_applicant_profile(applicant_json)
+    profile = ApplicantProfile.from_json(applicant_json)
 
     assert isinstance(profile, ApplicantProfile)
     assert profile.personal_info.full_name == "Test Name"
@@ -154,7 +153,7 @@ def test_create_applicant_profile(applicant_json):
 
 
 def test_create_application_data(application_json):
-    app_data = DataFactory.create_application_data(application_json)
+    app_data = ApplicationData.from_json(application_json)
 
     assert isinstance(app_data, ApplicationData)
     pos_info = app_data.position_information

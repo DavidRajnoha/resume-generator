@@ -1,4 +1,5 @@
-from dataclasses import dataclass, field
+import json
+from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 
 @dataclass
@@ -94,3 +95,40 @@ class ApplicantProfile:
     publications: List[Publication] = field(default_factory=list)
     interests: List[str] = field(default_factory=list)
     cover_letter_stories: List[CoverLetterStory] = field(default_factory=list)
+
+    @staticmethod
+    def from_json(data: dict):
+        """Creates an ApplicantProfile object from a JSON/dict representation."""
+        personal_info = PersonalInformation(**data.get('personal_info', {}))
+        professional_summary = data.get('professional_summary', "")
+        skills = data.get('skills', [])
+        education = [Education(**item) for item in data.get('education', [])]
+        work_experience = [WorkExperience(**item) for item in data.get('work_experience', [])]
+        volunteer_experience = [VolunteerExperience(**item) for item in data.get('volunteer_experience', [])]
+        projects = [Project(**item) for item in data.get('projects', [])]
+        certifications = [Certification(**item) for item in data.get('certifications', [])]
+        awards = [Award(**item) for item in data.get('awards', [])]
+        languages = [Language(**item) for item in data.get('languages', [])]
+        publications = [Publication(**item) for item in data.get('publications', [])]
+        interests = data.get('interests', [])
+        cover_letter_stories = [CoverLetterStory(**item) for item in data.get('cover_letter_stories', [])]
+
+        return ApplicantProfile(
+            personal_info=personal_info,
+            professional_summary=professional_summary,
+            skills=skills,
+            education=education,
+            work_experience=work_experience,
+            volunteer_experience=volunteer_experience,
+            projects=projects,
+            certifications=certifications,
+            awards=awards,
+            languages=languages,
+            publications=publications,
+            interests=interests,
+            cover_letter_stories=cover_letter_stories
+        )
+
+    def to_json(self) -> str:
+        """Convert the ApplicantProfile instance to a JSON string."""
+        return json.dumps(asdict(self), indent=2)
