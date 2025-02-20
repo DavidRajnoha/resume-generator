@@ -11,7 +11,7 @@ def test_openai_llm_connection():
     Integration test to verify that OpenAILLMProvider successfully connects to OpenAI API
     and returns a valid response.
     """
-    llm = OpenAILLMProvider(model="gpt-4", temperature=0.3, max_tokens=50)
+    llm = OpenAILLMProvider(model="gpt-4o", temperature=0.3, max_tokens=50)
 
     test_prompt = "Generate a short greeting message."
 

@@ -29,4 +29,11 @@ class OpenAILLMProvider(LLMProvider):
             temperature=self.temperature,
             max_tokens=self.max_tokens
         )
-        return response.choices[0].message.content.strip()
+        response_str = response.choices[0].message.content.strip()
+        ### Strip the ```LANGUAGE\n and ``` from the beginning and end of a response
+        if response_str.startswith("```"):
+            response_str = response_str[response_str.find("\n")+1:]
+        if response_str.endswith("```"):
+            response_str = response_str[:response_str.rfind("\n")]
+
+        return response_str

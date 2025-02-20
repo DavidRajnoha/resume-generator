@@ -178,3 +178,5 @@ def test_create_application_data(application_json):
     assert app_data.custom_sections[0].section_title == "Unique Value Proposition"
 
     assert app_data.extra_text == ["Additional notes from external sources."]
+
+

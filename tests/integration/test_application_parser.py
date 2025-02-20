@@ -81,7 +81,7 @@ def test_parse_with_real_llm(raw_text_extended):
     # Replace with your real LLM provider implementation
     from src.llm_wrappers.llm_providers import OpenAILLMProvider  # Adjust based on your actual provider
 
-    real_llm = OpenAILLMProvider()
+    real_llm = OpenAILLMProvider(model="gpt-4o", temperature=0.3, max_tokens=1500)
     parser = PlainTextParser(real_llm)
 
     application_data = parser.parse(raw_text_extended)

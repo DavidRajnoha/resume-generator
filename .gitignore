@@ -1,4 +1,5 @@
 tests/conftest_private.py
+latex_test/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
