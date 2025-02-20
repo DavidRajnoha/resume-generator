@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.fixture
 def application_data_json():
     return""" 
     "position_information": {
@@ -43,3 +47,64 @@ def application_data_json():
       ]
     }
 """
+
+
+import pytest
+
+
+@pytest.fixture
+def applicant_resume_txt():
+    return """
+    Alex Johnson is a Software Engineer with a B.S. in Computer Science from Tech University, class of 2023. He is currently enrolled in an M.S. program in Artificial Intelligence at Innovation University, expected to graduate in 2025.
+
+His technical skills include programming languages (JavaScript with React, Python with Django, and Go), AI & machine learning (TensorFlow, PyTorch), DevOps & cloud technologies (Docker, Kubernetes, AWS, GCP), infrastructure (Linux, Nginx, Terraform, Git), testing (Jest, Mocha, Test-Driven Development), and blockchain (Smart Contracts, Ethereum, Hyperledger). He also has strong skills in team leadership, project management, agile methodologies, and technical mentoring.
+
+Professional Experience
+
+    Software Developer at Web Solutions Inc. (2023 – Present): Developed and maintained web applications using React and Django, improving client satisfaction by 25%. Collaborated with cross-functional teams to deliver projects on time and within budget.
+
+    AI Research Intern at Data Insights Lab (2022 – 2023): Conducted research on machine learning algorithms, contributing to a publication in the Journal of AI Research. Developed predictive models that increased data processing efficiency by 15%.
+
+    Junior Developer at CodeCrafters LLC (2021 – 2022): Assisted in developing e-commerce platforms using Go and Kubernetes. Implemented features that enhanced user experience and boosted sales by 10%.
+
+Technical Projects
+
+    AI-Powered Chatbot (2024, GitHub): Designed and implemented a chatbot using TensorFlow and Python, capable of handling customer inquiries with a 90% accuracy rate. Deployed the solution using Docker and Kubernetes for scalability.
+
+Certifications
+
+    AWS Certified Solutions Architect – 2023
+
+Languages
+
+    English: Native proficiency
+    Spanish: Professional working proficiency
+
+Contact Information
+
+    Phone: +1 555 123-4567
+    Email: alex.johnson@example.com
+    LinkedIn: linkedin.com/in/alex-johnson-123456
+    GitHub: github.com/alexjohnson
+    """
+
+
+@pytest.fixture
+def linkedin_profile_txt():
+    return """
+    Alex Johnson is a dedicated Software Engineer specializing in full-stack development and artificial intelligence. With over 2 years of experience, he has a proven track record of building robust web applications and AI models. Alex is passionate about leveraging technology to solve real-world problems and is always eager to learn and adopt new technologies.
+
+    In his current role at Web Solutions Inc., Alex has led the development of several key projects, resulting in a significant increase in client satisfaction. He is also pursuing an M.S. in Artificial Intelligence to deepen his expertise in the field.
+
+    Outside of work, Alex contributes to open-source projects and enjoys mentoring junior developers. He is an advocate for continuous learning and believes in the power of collaboration to drive innovation.
+
+    Skills: JavaScript, React, Python, Django, Go, TensorFlow, Docker, Kubernetes, AWS, Agile Methodologies, Team Leadership
+    """
+
+
+@pytest.fixture
+def applicant_custom_txt():
+    return """
+    My Motivation
+    I am driven by a passion for technology and its potential to create meaningful change. I thrive in dynamic environments where I can apply my skills to develop innovative solutions. My goal is to continuously grow as a professional and contribute to projects that make a positive impact on society.
+    """
