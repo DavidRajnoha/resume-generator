@@ -12,8 +12,8 @@ from src.llm_wrappers.llm_providers import OpenAILLMProvider
     "OPENAI_API_KEY" not in os.environ or not os.environ["OPENAI_API_KEY"],
     reason="Skipping integration test because OPENAI_API_KEY is not set"
 )
-def test_build_integration(applicant_resume_txt, linkedin_profile_txt, applicant_custom_txt):
-    real_provider = OpenAILLMProvider(model="gpt-4o", temperature=0.3, max_tokens=1500)
+def test_build_integration(applicant_resume_txt, linkedin_profile_txt, applicant_custom_txt, model):
+    real_provider = OpenAILLMProvider(model=model, temperature=0.3, max_tokens=1500)
     builder = ApplicantProfileBuilder(real_provider)
 
     builder.add_source("Resume", applicant_resume_txt)

@@ -13,8 +13,8 @@ pytestmark = pytest.mark.skipif(
     reason="Integration test requires OpenAI API key."
 )
 
-def test_resume_builder_and_pdf_generation(tmp_path: Path, applicant, application):
-    llm_provider = OpenAILLMProvider(model="gpt-4o", temperature=0.3, max_tokens=1500)
+def test_resume_builder_and_pdf_generation(tmp_path: Path, applicant, application, model):
+    llm_provider = OpenAILLMProvider(model=model, temperature=0.3, max_tokens=1500)
 
     builder = ResumeBuilder(applicant, application, llm_provider)
     final_latex = builder.build_resume()
