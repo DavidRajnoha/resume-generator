@@ -23,6 +23,10 @@ def generate_pdf(final_latex: str, output_pdf_path: str):
         )
 
         if result.returncode != 0:
+            with open(os.path.join(tmpdirname, "final_latex_failed.tex"), "w") as log_file:
+                log_file.write(final_latex)
+                print(f"Failed to compile the following LaTeX to a PDF: {tex_file},"
+                      f" template saved in directory: {tmpdirname}")
             raise RuntimeError(f"pdflatex failed: {result.stderr.decode()}")
 
         pdf_file = os.path.join(tmpdirname, "resume.pdf")

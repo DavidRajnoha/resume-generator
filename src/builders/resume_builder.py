@@ -2,13 +2,14 @@ import json
 import os
 
 from src.models.applicant_profile import ApplicantProfile
+from src.models.application_data import ApplicationData
 
 
 class LLMCallFailedException(Exception):
     pass
 
 class ResumeBuilder:
-    def __init__(self, applicant_data: ApplicantProfile, application_data: ApplicantProfile, llm_provider,
+    def __init__(self, applicant_data: ApplicantProfile, application_data: ApplicationData, llm_provider,
                  template_path=None):
         """
         :param applicant_data: An object or dict containing applicant data.
@@ -69,7 +70,8 @@ class ResumeBuilder:
             f"{application_json}\n"
             "-------------------\n\n"
             "Escape the LaTeX special characters like '\\', '{', '}', and '%' with a backslash. "
-            "Please output the final LaTeX code for the resume."
+            "Please output only the final LaTeX code for the resume without any additional text or comments."
+            "Ensure that the latex is valid and not missing any properties and will not fail to compile.\n\n"
         )
 
         try:

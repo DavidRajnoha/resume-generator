@@ -1,5 +1,6 @@
 \documentclass[letterpaper,10pt]{article}
 
+% Using the provided style setup from the template
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -12,10 +13,12 @@
 \usepackage{CormorantGaramond}
 \usepackage{xcolor}
 
+% Colors from template
 \definecolor{accentTitle}{HTML}{0e6e55}
 \definecolor{accentText}{HTML}{0e6e55}
 \definecolor{accentLine}{HTML}{a16f0b}
 
+% Template settings
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot{}
@@ -23,6 +26,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \urlstyle{same}
 
+% Margin adjustments from template
 \addtolength{\oddsidemargin}{-0.7in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
@@ -36,9 +40,11 @@
 \raggedbottom
 \raggedright
 
+% Template commands
 \input{glyphtounicode}
 \pdfgentounicode=1
 
+% Custom commands from template
 \newcommand{\documentTitle}[2]{
   \begin{center}
     {\Huge\color{accentTitle} #1}
@@ -49,6 +55,12 @@
     \vspace{2pt}
     {\color{accentLine} \hrule}
   \end{center}
+}
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
 }
 
 \titleformat{\section}{
@@ -65,6 +77,10 @@
   \heading{\textbf{#1}}{\textbf{#2}}
 }
 
+\newcommand{\headingBfIt}[3]{
+  \heading{\textbf{#2}, \textit{#1}}{\textbf{#3}}
+}
+
 \newcommand{\headingIt}[2]{
   \heading{\textit{#1}}{\textit{#2}}
 }
@@ -79,55 +95,60 @@
 \begin{document}
 
 % Header
-\documentTitle{[FULL_NAME]}{
-    \href{tel:[PHONE_NUMBER]}{
-      \raisebox{-0.05\height} \faPhone\ [PHONE_NUMBER]} ~ | ~
-    \href{mailto:[EMAIL]}{
-      \raisebox{-0.15\height} \faEnvelope\ [EMAIL]} ~ | ~
-    \href{[LINKEDIN_URL]}{
-      \raisebox{-0.15\height} \faLinkedin\ [LINKEDIN_URL]} ~ | ~
-    \href{[GITHUB_URL]}{
-      \raisebox{-0.15\height} \faGithub\ [GITHUB_URL]}
+\documentTitle{[Applicant Full Name]}{
+    \href{tel:+1XXXXXX}{
+      \raisebox{-0.05\height} \faPhone\ +1 XXXXXX} ~ | ~
+    \href{mailto:email@example.com}{
+      \raisebox{-0.15\height} \faEnvelope\ email@example.com} ~ | ~
+    \href{https://www.linkedin.com/in/username/}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/username} ~ | ~
+    \href{https://github.com/username}{
+      \raisebox{-0.15\height} \faGithub\ github.com/username}
 }
 
 % Education
 \section{Education}
-\headingBf{[UNIVERSITY_NAME], [LOCATION]}{[GRADUATION_YEAR]}
-\headingIt{[DEGREE] in [FIELD]}{}
+
+\headingBf{[Institution Name], [Location]}{[Start Year] -- [End Year]}
+\headingIt{[Degree] in [Major]}{}
 
 % Technical Skills
 \section{Skills}
-\begin{multicols}{2}
-\begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=75pt]
-    \item[\textbf{CATEGORY}] [ENTRIES]
+
+\begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=90pt]
+        \item[\textbf{Programming Languages}] List of programming languages
+        \item[\textbf{Technologies and Tools}] List of relevant technologies and tools
+        \item[\textbf{Soft Skills}] List of relevant soft skills
 \end{itemize}
-\end{multicols}
 
 % Professional Experience
 \section{Professional Experience}
-\headingBf{[COMPANY_NAME]}{[START_DATE] -- [END_DATE]}
-\headingIt{[JOB_TITLE]}{}
+
+\headingBfIt{[Job Title]}{[Employer]}{[Employment Dates]}
 \begin{resume_list}
-    \item [RESPONSIBILITY_1]
-    \item [RESPONSIBILITY_2]
-    \item [RESPONSIBILITY_3]
+    \item Key achievement or responsibility 1
+    \item Key achievement or responsibility 2
+\end{resume_list}
+
+\headingBfIt{[Job Title]}{[Employer]}{[Employment Dates]}
+\begin{resume_list}
+    \item Key achievement or responsibility 1
+    \item Key achievement or responsibility 2
 \end{resume_list}
 
 % Technical Projects
-\section{Projects}
-\headingBf{[PROJECT_NAME] (\href{[PROJECT_LINK]}{GitHub})}{[START_DATE] -- [END_DATE]}
+\section{Technical Projects}
+\headingBf{[Project Title]}{[Year(s)]}
 \begin{resume_list}
-    \item [PROJECT_DETAIL_1]
-    \item [PROJECT_DETAIL_2]
+    \item Description of project
 \end{resume_list}
 
-% Certifications
+% Certificates
 \section{Certificates}
-\headingBf{[CERTIFICATION_NAME]}{[YEAR]}
+ \headingBf{[Certificate Title]}{[Year]}
 
 % Languages
 \section{Languages}
-\textbf{[LANGUAGE_1]:} [PROFICIENCY_1] \\
-\textbf{[LANGUAGE_2]:} [PROFICIENCY_2]
+\textbf{[Language]}: [Proficiency Level]
 
 \end{document}
