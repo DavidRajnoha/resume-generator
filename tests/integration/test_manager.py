@@ -3,7 +3,7 @@ import pytest
 from pathlib import Path
 
 # Adjust the import to where your LocalCoordinatingManager is defined.
-from src.interface.manager import LocalCoordinatingManager
+from src.coordination.coordination_pipeline import ResumePipeline
 
 pytestmark = pytest.mark.skipif(
     os.environ.get("OPENAI_API_KEY") is None,
@@ -29,14 +29,12 @@ def test_run_integration(tmp_path: Path, application_raw_text, applicant_resume_
     output_pdf_path = str(tmp_path / "output_resume.pdf")
 
     # Create an instance of the LocalCoordinatingManager.
-    manager = LocalCoordinatingManager()
-
-    # Call the run() method.
-    manager.run(
+    pipeline = ResumePipeline(
         applicant_paths=[str(applicant_resume_path), str(applicant_custom_path)],
         application_path=str(application_text_path),
-        output_path=output_pdf_path
-    )
+        output_path=output_pdf_path)
+
+    pipeline.run()
 
     # Verify that the output PDF file is created.
     output_pdf = Path(output_pdf_path)

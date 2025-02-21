@@ -1,9 +1,18 @@
 import json
+from abc import ABC
+
 from jsonschema import validate, ValidationError
 from src.models.applicant_profile import ApplicantProfile
 
+class AbstractApplicantProfileBuilder(ABC):
+    def add_source(self, source_name: str, raw_text: str):
+        raise NotImplementedError
 
-class ApplicantProfileBuilder:
+    def build(self) -> dict:
+        raise NotImplementedError
+
+
+class ApplicantProfileBuilder(AbstractApplicantProfileBuilder):
     """
     Builder class to accumulate raw text from multiple sources and compose them into
     a JSON representation of the applicant profile using an LLM provider.
