@@ -7,6 +7,10 @@ from src.models.application_data import ApplicationData
 
 
 @pytest.fixture
+def applicant_id():
+    return "alex_johnson"
+
+@pytest.fixture
 def applicant(applicant_data_json):
     return ApplicantProfile.from_json(applicant_data_json)
 

@@ -1,5 +1,10 @@
 tests/conftest_private.py
+tests/integration/applicant_data
+tests/integration/application_data
 latex_test/
+
+# pickle files
+*.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

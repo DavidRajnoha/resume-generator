@@ -4,6 +4,8 @@ from src.coordination.coordination_strategy import LocalCoordinationStrategy
 from src.llm_wrappers.llm_providers import LLMProvider
 from src.parsers.applicant_builder import AbstractApplicantProfileBuilder
 from src.parsers.application_parser import ApplicationParser
+from src.persistance.applicant_repository import InMemoryApplicantRepository
+from src.persistance.application_repository import InMemoryApplicationRepository
 
 
 class DummyApplicantProfile:
@@ -55,7 +57,12 @@ def dummy_applicant_builder():
 
 @pytest.fixture
 def strategy(monkeypatch, llm_provider, dummy_application_parser, dummy_applicant_builder):
-    strat = LocalCoordinationStrategy(llm_provider, dummy_application_parser, dummy_applicant_builder)
+    applicant_repository = InMemoryApplicantRepository()
+    application_repository = InMemoryApplicationRepository()
+
+    strat = LocalCoordinationStrategy(llm_provider, dummy_application_parser, dummy_applicant_builder,
+                                      application_repository=application_repository,
+                                      applicant_repository=applicant_repository)
     # Monkey-patch the static load_text method to avoid file I/O.
     monkeypatch.setattr(LocalCoordinationStrategy, "load_text", dummy_load_text)
     # Monkey-patch generate_pdf function used by the strategy.

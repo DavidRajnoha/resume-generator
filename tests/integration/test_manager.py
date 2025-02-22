@@ -5,12 +5,19 @@ from pathlib import Path
 # Adjust the import to where your LocalCoordinatingManager is defined.
 from src.coordination.coordination_pipeline import ResumePipeline
 
+@pytest.fixture
+def load_stored_applicant():
+    """
+    Fixture to reload the test data from the files.
+    """
+    return True
+
 pytestmark = pytest.mark.skipif(
     os.environ.get("OPENAI_API_KEY") is None,
     reason="Integration test requires a valid OpenAI API key."
 )
-
-def test_run_integration(tmp_path: Path, application_raw_text, applicant_resume_txt, applicant_custom_txt):
+def test_run_integration(tmp_path: Path, application_raw_text, applicant_resume_txt, applicant_custom_txt,
+                         load_stored_applicant):
     """
     Integration test for the LocalCoordinatingManager's run() method.
     It writes the application and applicant data to temporary files,
@@ -30,7 +37,8 @@ def test_run_integration(tmp_path: Path, application_raw_text, applicant_resume_
 
     # Create an instance of the LocalCoordinatingManager.
     pipeline = ResumePipeline(
-        applicant_paths=[str(applicant_resume_path), str(applicant_custom_path)],
+        applicant_id="test_applicant",
+        applicant_paths=[] if load_stored_applicant else [str(applicant_resume_path), str(applicant_custom_path)],
         application_path=str(application_text_path),
         output_path=output_pdf_path)
 

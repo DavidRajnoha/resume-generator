@@ -6,8 +6,9 @@ from src.models.application_data import ApplicationData
 
 
 class ResumePipeline:
-    def __init__(self, applicant_paths: List[str], application_path: str, output_path: str,
+    def __init__(self, applicant_id: str, applicant_paths: List[str], application_path: str, output_path: str,
                  strategy: Optional[CoordinationStrategy] = None):
+        self.applicant_id = applicant_id
         self.applicant_paths = applicant_paths
         self.application_path = application_path
         self.output_path = output_path
@@ -28,7 +29,7 @@ class ResumePipeline:
 
     @retry(max_retries=MAX_RETRIES, retry_message="Retrying parse_applicant_data...")
     def parse_applicant_data(self):
-        self.applicant = self.strategy.parse_applicant_data(self.applicant_texts)
+        self.applicant = self.strategy.parse_applicant_data(self.applicant_id, self.applicant_texts)
 
     @retry(max_retries=MAX_RETRIES, retry_message="Retrying parse_application_data...")
     def parse_application_data(self):
