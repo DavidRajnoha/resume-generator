@@ -1,4 +1,4 @@
-from src.utils.latex_to_pdf import generate_pdf
+from src.modules.pdf_generator.latex_to_pdf import generate_pdf
 
 
 def test_generate_pdf(tmp_path):

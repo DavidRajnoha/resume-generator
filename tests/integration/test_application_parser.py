@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from src.parsers.application_parser import PlainTextParser
+from src.modules.application_parser.application_parser import PlainTextParser
 
 
 @pytest.fixture

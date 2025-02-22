@@ -155,7 +155,7 @@ def application_data_json():
             "description": "An exciting, 10-week, paid, on-site Internship experience awaits! Gain real life experience into the world of Insurance Brokerage. You will work within a high-energy, fast paced environment that is both competitive and fun. This role will afford the opportunity to work on-site in our New York, NY office for Summer 2025.",
             "responsibilities": [
                 "Receive targeted business and technical training with a greater understanding of the Retail Brokerage Insurance industry",
-                "Become acclimated to working in an environment dedicated to exceeding client expectations and delivering products and services distinct to unique client needs",
+                "Become acclimated to working in an environment dedicated to exceeding client expectations and delivering products and modules distinct to unique client needs",
                 "Work with account and project teams to deliver business-focused initiatives and strategic recommendations",
                 "Be presented with real world business, risk management, and insurance experience and learn to apply the concepts you've learned in the classroom through project work",
                 "Shadow team members on meetings with clients and attend client decision meetings and conference calls",
@@ -179,7 +179,7 @@ def application_data_json():
         "company_profile": {
             "name": "Risk Strategies",
             "website": None,
-            "description": "Risk Strategies is the 9th largest privately held US brokerage firm offering comprehensive risk management advice, insurance and reinsurance placement for Property & Casualty, Employee Benefits, Private Client Services, as well as consulting services and financial & wealth solutions.",
+            "description": "Risk Strategies is the 9th largest privately held US brokerage firm offering comprehensive risk management advice, insurance and reinsurance placement for Property & Casualty, Employee Benefits, Private Client Services, as well as consulting modules and financial & wealth solutions.",
             "industry": "Insurance",
             "size": "5,400 employees"
         },
@@ -267,7 +267,7 @@ Our summer Internship program offers the chance to have practical, real-world ex
 You will:
 
     Receive targeted business and technical training with a greater understanding of the Retail Brokerage Insurance industry
-    Become acclimated to working in an environment dedicated to exceeding client expectations and delivering products and services distinct to unique client needs
+    Become acclimated to working in an environment dedicated to exceeding client expectations and delivering products and modules distinct to unique client needs
     Work with account and project teams to deliver business-focused initiatives and strategic recommendations
     Be presented with real world business, risk management, and insurance experience and learn to apply the concepts you’ve learned in the classroom through project work
     Shadow team members on meetings with clients and attend client decision meetings and conference calls
@@ -290,7 +290,7 @@ Requirements & Qualifications:
 
 Risk Strategies is the 9th largest privately held US brokerage firm offering comprehensive risk management advice, insurance and reinsurance placement for Property & Casualty, Employee Benefits, Private Client Services, as well as
 
-consulting services and financial & wealth solutions. With over 200 offices and more than 5,400 employees, Risk Strategies is as part of the Accession Risk Management Group family of companies.
+consulting modules and financial & wealth solutions. With over 200 offices and more than 5,400 employees, Risk Strategies is as part of the Accession Risk Management Group family of companies.
 
 
 Industry recognition includes being certified a 2024 Rise Elite Internship Program Recipient, Great Place to Work in 2025 and is on the Inc. 5000 list as one of America’s fastest growing private companies.

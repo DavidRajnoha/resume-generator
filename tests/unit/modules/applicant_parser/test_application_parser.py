@@ -1,7 +1,7 @@
 import pytest
 
 from src.llm_wrappers.llm_providers import LLMProvider
-from src.parsers.application_parser import PlainTextParser
+from src.modules.application_parser.application_parser import PlainTextParser
 
 
 class MockLLMProvider(LLMProvider):

@@ -1,5 +1,5 @@
 from typing import List, Optional
-from src.coordination.coordination_strategy import LocalCoordinationStrategy, CoordinationStrategy
+from src.coordination.strategies.local_coordination_strategy import LocalCoordinationStrategy, CoordinationStrategy
 from src.coordination.retry_decorator import retry, MAX_RETRIES
 from src.models.applicant_profile import ApplicantProfile
 from src.models.application_data import ApplicationData

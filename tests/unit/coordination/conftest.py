@@ -2,8 +2,8 @@ import pytest
 
 from src.coordination.coordination_strategy import LocalCoordinationStrategy
 from src.llm_wrappers.llm_providers import LLMProvider
-from src.parsers.applicant_builder import AbstractApplicantProfileBuilder
-from src.parsers.application_parser import ApplicationParser
+from src.modules.applicant_parser.applicant_builder import AbstractApplicantProfileBuilder
+from src.modules.application_parser.application_parser import ApplicationParser
 from src.persistance.applicant_repository import InMemoryApplicantRepository
 from src.persistance.application_repository import InMemoryApplicationRepository
 

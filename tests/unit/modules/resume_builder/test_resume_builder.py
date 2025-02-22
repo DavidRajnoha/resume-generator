@@ -1,5 +1,5 @@
 import json
-from src.builders.resume_builder import ResumeBuilder, \
+from src.modules.resume_builder.resume_builder import ResumeBuilder, \
     LLMCallFailedException  # Adjust import based on your project structure
 
 

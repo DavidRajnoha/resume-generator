@@ -1,6 +1,6 @@
 import json
 
-from src.parsers.applicant_builder import ApplicantProfileBuilder
+from src.modules.applicant_parser.applicant_builder import ApplicantProfileBuilder
 from src.models.applicant_profile import ApplicantProfile
 
 class DummyLLMProvider:
@@ -32,7 +32,7 @@ class DummyLLMProvider:
                 "location": "Remote",
                 "start_date": "2019",
                 "end_date": "Present",
-                "responsibilities": ["Developed backend services"]
+                "responsibilities": ["Developed backend modules"]
             }],
             "volunteer_experience": [],
             "projects": [],

@@ -1,10 +1,9 @@
-import json
 import os
 
 import pytest
 
 from src.models.applicant_profile import ApplicantProfile
-from src.parsers.applicant_builder import ApplicantProfileBuilder
+from src.modules.applicant_parser.applicant_builder import ApplicantProfileBuilder
 from src.llm_wrappers.llm_providers import OpenAILLMProvider
 
 

@@ -1,11 +1,9 @@
 import os
 import pytest
-import json
-import subprocess
 from pathlib import Path
-from src.builders.resume_builder import ResumeBuilder
+from src.modules.resume_builder.resume_builder import ResumeBuilder
 from src.llm_wrappers.llm_providers import OpenAILLMProvider
-from src.utils.latex_to_pdf import generate_pdf # Ensure this provider is implemented.
+from src.modules.pdf_generator.latex_to_pdf import generate_pdf # Ensure this provider is implemented.
 
 # Skip the integration test if no API key is provided.
 pytestmark = pytest.mark.skipif(
