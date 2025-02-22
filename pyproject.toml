@@ -1,9 +1,13 @@
 [tool.poetry]
-name = "applicationpipeline"
+name = "application_pipeline"
 version = "0.1.0"
 description = ""
 authors = ["David <drajnoha@seznam.cz>"]
 readme = "README.md"
+packages = [
+    { include = "src", from = "." }
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.13"
@@ -12,7 +16,9 @@ openai = "^1.63.2"
 pytest-env = "^1.1.5"
 jsonschema = "^4.23.0"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+resume-cli = "src.interface.cli:main"

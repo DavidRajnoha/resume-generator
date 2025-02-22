@@ -2,6 +2,7 @@ tests/conftest_private.py
 tests/integration/applicant_data
 tests/integration/application_data
 latex_test/
+local/
 
 # pickle files
 *.pkl
