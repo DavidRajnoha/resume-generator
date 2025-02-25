@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from src.models.application_data import ApplicationData
 from src.models.applicant_profile import ApplicantProfile
 
+
 class CoordinationStrategy(ABC):
     @abstractmethod
     def load_applicant_data(self, paths: List[str], retry: int = 1) -> List[str]:
@@ -24,6 +25,10 @@ class CoordinationStrategy(ABC):
 
     @abstractmethod
     def build_resume(self, applicant: ApplicantProfile, application: ApplicationData, retry: int = 1) -> str:
+        raise NotImplementedError
+
+    @abstractmethod
+    def build_cover_letter(self, applicant: ApplicantProfile, application: ApplicationData, retry: int = 1) -> str:
         raise NotImplementedError
 
     @abstractmethod

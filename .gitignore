@@ -3,6 +3,8 @@ tests/integration/applicant_data
 tests/integration/application_data
 latex_test/
 local/
+.idea
+
 
 # pickle files
 *.pkl
