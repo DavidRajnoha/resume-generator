@@ -52,11 +52,19 @@ class ResumeBuilder:
         application_json = self._get_json(self.application_data)
 
         prompt = (
-            "You are a resume builder that produces valid LaTeX output. "
-            "Below is a LaTeX resume template with placeholders followed by JSON representations of "
-            "applicant data and application data. Please generate a personalized, well-formatted "
-            "LaTeX resume by filling in the placeholders with the appropriate data from the JSON. "
-            "Ensure that no placeholders remain in the final output and that the document is ready for compilation.\n\n"
+            "You are an expert resume builder that produces strategic, tailored LaTeX resumes. "
+            "Using the applicant data and specific job application data provided below, create a highly customized "
+            "resume that aligns the candidate's experience and skills with the job requirements. "
+            "Analyze both the applicant's background and the job details to:\n"
+            "1. Prioritize relevant experiences and skills that match the job requirements\n"
+            "2. Use industry-specific keywords from the job description\n"
+            "3. Quantify achievements where possible\n"
+            "4. Adapt the professional summary to highlight alignment with the role\n"
+            "5. Customize skill sections to emphasize relevant competencies\n\n"
+            "Below is a LaTeX resume template with placeholders, followed by JSON representations of "
+            "applicant data and application data. Generate a strategically formatted LaTeX resume by "
+            "filling in the placeholders with appropriate data from the JSON, ensuring the content "
+            "is optimized for this specific job application.\n\n"
             "LaTeX Template:\n"
             "-------------------\n"
             f"{self.template}\n"
@@ -69,14 +77,20 @@ class ResumeBuilder:
             "-------------------\n"
             f"{application_json}\n"
             "-------------------\n\n"
-            "Escape the LaTeX special characters like '\\', '{', '}', and '%' with a backslash. "
-            "Please output only the final LaTeX code for the resume without any additional text or comments."
-            "Ensure that the latex is valid and not missing any properties and will not fail to compile.\n\n"
+            "Requirements:\n"
+            "- Create compelling bullet points that demonstrate relevant impact and achievements\n"
+            "- Incorporate keywords and phrases from the job description naturally\n"
+            "- Prioritize experiences that best match the role's requirements\n"
+            "- Adjust formatting and section emphasis based on role importance\n"
+            "- Do not fabricate any information; use only the provided data\n"
+            "- Ensure all LaTeX special characters ('\\', '{', '}', '%') are properly escaped with a backslash\n"
+            "- Output only the final, compilation-ready LaTeX code without additional comments\n\n"
         )
 
         try:
-            final_resume = self.llm_provider.complete(prompt)
-            return final_resume
+            preview_resume = self.llm_provider.complete(prompt)
         except Exception as e:
             print(f"Error during LLM API call: {e}")
             raise LLMCallFailedException("Error during LLM API call.") from e
+
+        return preview_resume

@@ -3,7 +3,7 @@ import pytest
 from pathlib import Path
 
 # Adjust the import to where your LocalCoordinatingManager is defined.
-from src.coordination.coordination_pipeline import ResumePipeline
+from src.coordination.coordinator import Coordinator
 
 @pytest.fixture
 def load_stored_applicant():
@@ -36,7 +36,7 @@ def test_run_integration(tmp_path: Path, application_raw_text, applicant_resume_
     output_pdf_path = str(tmp_path / "output_resume.pdf")
 
     # Create an instance of the LocalCoordinatingManager.
-    pipeline = ResumePipeline(
+    pipeline = Coordinator(
         applicant_id="test_applicant",
         applicant_paths=[] if load_stored_applicant else [str(applicant_resume_path), str(applicant_custom_path)],
         application_path=str(application_text_path),
